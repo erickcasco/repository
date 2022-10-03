@@ -1,0 +1,68 @@
+#This will be a program to play rock paper scissors against the program itself
+import random
+
+def main():
+    replay = True
+    print("Hello welcome to the rock paper scissors program!")
+    print("The way this will work is 1 = Rock 2 = Paper 3 = Scissors")
+    print("Please pick from one of those options")
+    while replay == True:
+        getInput()
+        decisionMaker()
+        whoWins()
+        replay = int(input("Would you like to play again? 1 = yes 2 = no: "))
+        if replay == 1:
+            print("Understood")
+        elif replay == 2:
+            replay = False
+            print("Understood")
+        elif replay > 2 or replay < 1:
+            print("Error: Invalid Input")
+            replay = int(input("Would you like to play again? 1 = yes 2 = no: "))
+            while replay > 2:
+                print("Error: Invalid Input")
+                replay = int(input("Would you like to play again? 1 = yes 2 = no: "))
+                while replay < 1:
+                    print("Error: Invalid Input")
+                    replay = int(input("Would you like to play again? 1 = yes 2 = no: "))
+            while replay < 1:
+                print("Error: Invalid Input")
+                replay = int(input("Would you like to play again? 1 = yes 2 = no: "))
+                while replay > 2:
+                    print("Error: Invalid Input")
+                    replay = int(input("Would you like to play again? 1 = yes 2 = no: "))
+
+def whoWins():
+    if choice == computer:
+        print("Wow it's a tie!")
+    elif choice > computer:
+        print("Good job! You won.")
+    else:
+        print("Maybe next time you'll get it.")
+
+def decisionMaker():
+    print("Computer is choosing....")
+    global computer 
+    computer = random.randrange(1,4)
+    print("Computer Choice:", computer)
+
+def getInput():
+    global choice 
+    choice = int(input("Enter your pick: "))
+    if choice > 3 or choice < 1:
+        print("Error: Invalid Input")
+        choice = int(input("Enter your pick: "))
+        while choice > 3:
+            print("Error: Invalid Input")
+            choice = int(input("Enter your pick: "))
+            while choice < 1:
+                print("Error: Invalid Input")
+                choice = int(input("Enter your pick: "))
+        while choice < 1:
+            print("Error: Invalid Input")
+            choice = int(input("Enter your pick: "))
+            while choice > 3:
+                print("Error: Invalid Input")
+                choice = int(input("Enter your pick: "))
+                
+main()
