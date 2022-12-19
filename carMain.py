@@ -1,4 +1,4 @@
-import car
+import carClass
 
 mycar = car.car("scionXB", "2003")
 
